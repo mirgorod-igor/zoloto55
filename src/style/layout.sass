@@ -1,0 +1,19 @@
+.row
+    display: flex
+    align-items: center
+
+    &.center
+        align-items: center
+
+    &.between
+        justify-content: space-between
+
+
+.col
+    display: flex
+    flex-flow: column
+
+    &:\gap
+        &\:r
+            &\:8
+                row-gap: 8px

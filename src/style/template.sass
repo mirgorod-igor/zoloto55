@@ -1,0 +1,160 @@
+@import catalog-dropdown, vars
+
+
+.top
+    z-index: 2
+
+
+.menu\:top
+    background: $gray7
+    padding: 20px $padding-v
+    display: flex
+    align-items: center
+    column-gap: 16px
+
+    a
+        color: #797878
+        font-weight: 500
+        &:hover
+            color: #d3c48f
+    > a
+        &:first-of-type
+            color: black
+            font-weight: 600
+
+            
+
+    > div
+        display: flex
+        column-gap: 40px
+        margin-left: auto
+        
+            
+
+.catalog\:menu
+    column-gap: 26px
+    a
+        &:hover
+            color: $gold-hover
+    
+    .divider
+        display: block
+        background: $gray6
+        width: 2px
+        height: 14px
+        margin: 0 20px
+
+
+header
+    display: flex
+    flex-flow: column
+    row-gap: 16px
+    align-items: center
+    justify-content: space-between
+    padding: 20px $padding-v 0 $padding-v
+    align-items: stretch
+    position: sticky
+
+    > div
+        display: flex
+        align-items: center
+
+        &.first
+            justify-content: space-between
+
+            > div
+                display: flex
+                align-items: center
+
+                &.left
+                    column-gap: 14px
+
+                &.right
+                    column-gap: 28px
+
+
+        &.second
+            margin: 0 50px
+            //position: relative
+            justify-content: space-between
+
+
+
+
+.catalog\:button
+    cursor: pointer
+    padding: 0 40px
+    background: $gray7
+    border: 1px solid $gold
+    transition: border-color .3s linear
+    
+
+    > a
+        line-height: 50px
+        color: $gold
+        font-size: 16px
+        font-weight: 600
+        text-transform: uppercase
+        transition: color .3s linear
+
+
+    &:hover
+        border-color: $gold-hover
+
+        > a
+            color: $gold-hover
+            
+
+        > .catalog\:dropdown
+            display: flex
+    
+
+
+
+
+
+footer
+    margin-top: auto
+    padding: 20px $padding-v
+    display: grid
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 3fr) minmax(0, 2fr)
+    column-gap: 60px
+    justify-content: space-between
+    background: $gray7
+
+
+    b
+        font-size: 18px
+
+    ul
+        columns: 2
+        justify-content: space-between
+        margin-top: 30px
+        row-gap: 12px
+
+        > li
+            margin-bottom: 12px
+            font-size: 14px
+            font-weight: 500
+            padding-right: 16px
+
+            > a
+                &:hover
+                    color: $gold-hover
+
+    div
+        border-right: 2px solid $gray6
+
+        &:last-of-type
+            display: flex
+            flex-flow: column
+            justify-content: space-between
+
+
+            > a
+                color: black
+                &:last-of-type
+                    text-decoration: underline
+                    text-underline-offset: 4px
+                    
+
