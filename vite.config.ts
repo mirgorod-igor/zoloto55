@@ -10,7 +10,6 @@ console.log(env.NODE_ENV)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: env.NODE_ENV == 'development' ? undefined : '/zoloto55',
     plugins: [
         rollupReplace({
             preventAssignment: true,
