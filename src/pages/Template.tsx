@@ -15,11 +15,12 @@ import '@/style/template.sass'
 
 
 const Menu = () => {
-    return <ul className='row between uppercase fs18 fw6 catalog:menu'>
+    return <ul className='row between uppercase fw6 catalog:menu'>
+        <Link to='catalog/braslety'>браслеты</Link>
         <Link to='catalog/koltsa'>кольца</Link>
         <Link to='catalog/sergi'>серьги</Link>
         <Link to='catalog/tsepochki'>цепи</Link>
-        <Link to='catalog/pomolvka-i-svadba'>помолвка и свадьба</Link>
+        <Link to='catalog/svadba'>свадьба</Link>
         <Link to='catalog/podarki'>подарки</Link>
         <span className='divider'></span>
         <Link to='catalog/aktsii'>акции</Link>

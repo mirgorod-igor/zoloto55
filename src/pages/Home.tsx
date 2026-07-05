@@ -2,10 +2,17 @@ import { ReactNode } from 'react'
 import { Outlet } from 'react-router-dom'
 
 
-import Banner1 from '../img/banners/2kdmp8fnhhqf6xa4srhf1hb74ng6skjl.webp'
-import Banner2 from '../img/banners/jk234clrw2z0dlfp4m3ajkd419ojawqi.webp'
-
+import Banner1 from '@/img/banners/3tbfoxihgvrs98kawsz97iwj85dcpzjv.webp'
+import Banner2 from '@/img/banners/0ne06h45acttxijata10032gsleew1zg.webp'
+import Banner3 from '@/img/banners/zpi3w2nl0e4j804n1dcl1tb69jb2ttek.webp'
+import Banner4 from '@/img/banners/smhdt6fqfseugpfha2g2a9wk0h8flkwf.webp'
+ 
 import J1 from '../img/jewerly/9e91tjthwxvc2tg3b9a3jii38k93r6pc.webp'
+
+import Ok from '@/img/ok.svg?react'
+import Percent from '@/img/percent.svg?react'
+import Delivery from '@/img/delivery.svg?react'
+import Payment from '@/img/payment.svg?react'
 
 
 import '../style/home.sass'
@@ -20,6 +27,17 @@ const banners = [
     },
     {
         img: Banner2,
+        url: 'https://youtube.com',
+        desc: ''
+    },
+    ,
+    {
+        img: Banner3,
+        url: 'https://youtube.com',
+        desc: ''
+    },,
+    {
+        img: Banner4,
         url: 'https://youtube.com',
         desc: ''
     }
@@ -64,6 +82,11 @@ const jewerly = [
     {
         img: J1,
         url: '',
+        desc: 'браслеты'
+    },
+    {
+        img: J1,
+        url: '',
         desc: 'серьги'
     },
     {
@@ -80,11 +103,6 @@ const jewerly = [
         img: J1,
         url: '',
         desc: 'подвески'
-    },
-    {
-        img: J1,
-        url: '',
-        desc: 'браслеты'
     },
     {
         img: J1,
@@ -115,9 +133,19 @@ const Main = () => {
 
     return <>
         <Outlet />
-        <Swiper />
-        <h2>Ювелирные изделия</h2>
-        <JewelrySwiper />
+        <section>
+            <Swiper />
+            <ul className='conditions'>
+                <li><Ok /> Гарантия на весь товар</li>
+                <li><Percent />Рассрочка 12 месяцев</li>
+                <li><Delivery />Доставка от 1-го дня</li>
+                <li><Payment />Оплата после примерки</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Ювелирные изделия</h2>
+            <JewelrySwiper />
+        </section>
     </>
 }
 

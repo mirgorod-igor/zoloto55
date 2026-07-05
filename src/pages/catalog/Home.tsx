@@ -9,6 +9,7 @@ import '../../style/catalog/category.sass'
 
 
 const names = {
+    brasletyi: 'браслеты',
     koltsa: 'кольца',
     sergi: 'серьги',
     tsepochki: 'цепи',

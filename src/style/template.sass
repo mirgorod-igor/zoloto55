@@ -7,10 +7,11 @@
 
 .menu\:top
     background: $gray7
-    padding: 20px $padding-v
+    padding: 14px $padding-v
     display: flex
     align-items: center
     column-gap: 16px
+    font-size: 14px
 
     a
         color: #797878
@@ -48,7 +49,7 @@
 header
     display: flex
     flex-flow: column
-    row-gap: 16px
+    row-gap: 26px
     align-items: center
     justify-content: space-between
     padding: 20px $padding-v 0 $padding-v
@@ -70,11 +71,13 @@ header
                     column-gap: 14px
 
                 &.right
-                    column-gap: 28px
+                    column-gap: 30px
 
+            > a > svg
+                height: 50px
 
         &.second
-            margin: 0 50px
+            margin: 0 40px
             //position: relative
             justify-content: space-between
 
@@ -83,7 +86,7 @@ header
 
 .catalog\:button
     cursor: pointer
-    padding: 0 40px
+    padding: 0 50px
     background: $gray7
     border: 1px solid $gold
     transition: border-color .3s linear
