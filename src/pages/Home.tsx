@@ -30,12 +30,11 @@ const banners = [
         url: 'https://youtube.com',
         desc: ''
     },
-    ,
     {
         img: Banner3,
         url: 'https://youtube.com',
         desc: ''
-    },,
+    },
     {
         img: Banner4,
         url: 'https://youtube.com',
