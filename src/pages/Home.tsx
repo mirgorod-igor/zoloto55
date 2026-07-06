@@ -112,6 +112,32 @@ const jewerly = [
 ]
 
 
+
+
+const companyReviews = [
+    {
+        client: 'Боярская Ольга Ивановна',
+        city: 'Москва',
+        date: '15.04.2026',
+        review: 'Сегодня приобрела себе цепочку из белого золота , 45 разм . Обслуживание на высшем уровне . Спасибо Всем !'
+    },
+    {
+        client: 'Газарян Светлана',
+        city: 'Омск',
+        date: '04.06.2026',
+        review: 'Обменивала старе на новое, всё доступно объяснили. Покупкой довольна, спасибо.'
+    },
+    {
+        client: 'Максим',
+        city: 'Омск',
+        date: '04.06.2026',
+        review: 'Сегодня приобрёл подарок для жены серьги и кулон. Продавец консультант Юлия Владимировна просто профессионал своего дела ей нужно давать премию за это. Приобрет...'
+    }
+
+]
+
+
+
 const JewelrySwiper = () => {
     return <SwiperContainer className='jewelry-swiper' slides={4} spaceBetween={20}>
         {
@@ -145,6 +171,22 @@ const Main = () => {
         <section>
             <h2>Ювелирные изделия</h2>
             <JewelrySwiper />
+        </section>
+
+        <section>
+            <h2>Отзывы о компании</h2>
+            <ul className='reviews'>
+            {
+                companyReviews.map((it, i) => <li key={i}>
+                    <div>
+                        <b>{it.client}</b>
+                        <small>г. {it.city}&nbsp;&nbsp;&nbsp;{it.date}</small>
+                    </div>
+                    <span>{it.review}</span>
+                    <a><b>Читать весь отзыв</b></a>
+                </li>)
+            }
+            </ul>
         </section>
     </>
 }

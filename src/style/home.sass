@@ -1,17 +1,25 @@
 @import vars
 
-    
-.main-swiper
-    height: 530px
-    margin-bottom: 30px
 
+
+h2
+    margin-bottom: 50px
+    
 
 section
     margin-bottom: 80px
 
 
-.jewelry-swiper
 
+
+.main-swiper
+    height: 530px
+    margin-bottom: 30px
+
+
+
+
+.jewelry-swiper
     a
         border: 6px solid $gray7
         height: inherit
@@ -50,5 +58,55 @@ section
             padding-right: 35px
 
 
-h2
-    margin-bottom: 50px
+
+
+.reviews
+    display: flex
+    justify-content: space-between
+    column-gap: 20px
+
+
+    > li
+        display: flex
+        flex-flow: column
+        row-gap: 25px
+        flex: 1
+        padding-right: 20px
+
+        &:not(:last-child)
+            border-right: 2px solid #faf8f7
+
+        > div
+            display: flex
+            justify-content: space-between
+            align-items: center
+            height: 50px
+            > small
+                color: #b5afaa
+            > b
+                font-size: 18px
+                max-width: 200px
+        > a
+            margin-top: auto
+            transition: 0.3s
+            display: flex
+            align-items: center
+            justify-content: space-between
+            cursor: pointer
+            &::after
+                content: ''
+                display: block
+                width: 25px
+                height: 10px 
+                background-image: url(@/img/ArrowRight.svg)
+                background-size: contain
+                background-repeat: no-repeat
+                transition: 0.3s
+            &:hover
+                color: #d3c48f
+                &::after
+                    width: 44px
+                    background-image: url(@/img/ArrowRightHover.svg)
+
+
+ 
