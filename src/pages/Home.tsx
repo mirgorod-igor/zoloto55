@@ -2,10 +2,6 @@ import { ReactNode } from 'react'
 import { Outlet } from 'react-router-dom'
 
 
-import Banner1 from '@/img/banners/3tbfoxihgvrs98kawsz97iwj85dcpzjv.webp'
-import Banner2 from '@/img/banners/0ne06h45acttxijata10032gsleew1zg.webp'
-import Banner3 from '@/img/banners/zpi3w2nl0e4j804n1dcl1tb69jb2ttek.webp'
-import Banner4 from '@/img/banners/smhdt6fqfseugpfha2g2a9wk0h8flkwf.webp'
  
 import J1 from '../img/jewerly/9e91tjthwxvc2tg3b9a3jii38k93r6pc.webp'
 
@@ -16,32 +12,35 @@ import Payment from '@/img/payment.svg?react'
 
 
 import '../style/home.sass'
+import { atom } from 'nanostores'
+import { useStore } from '@nanostores/react'
 
 
 
-const banners = [
-    {
-        img: Banner1,
-        url: 'https://youtube.com',
-        desc: ''
-    },
-    {
-        img: Banner2,
-        url: 'https://youtube.com',
-        desc: ''
-    },
-    {
-        img: Banner3,
-        url: 'https://youtube.com',
-        desc: ''
-    },
-    {
-        img: Banner4,
-        url: 'https://youtube.com',
-        desc: ''
+const $banners = atom<Banner[]>([])
+
+
+async function fetchUserData() {
+  const url = 'banners.json'
+  
+  try {
+    const response = await fetch(url)
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`)
     }
-]
+    
+    const data = await response.json();
+    console.log(data);
 
+    $banners.set([...data])
+    
+  } catch (error) {
+    console.error('Fetch operation failed:', error)
+  }
+}
+debugger
+fetchUserData()
 
 
 type ContainerProps = {
@@ -64,12 +63,13 @@ const SwiperSlide = p => <swiper-slide lazy>{p.children}</swiper-slide>
 
 
 const Swiper = () => {
+    const banners = useStore($banners)
 
     return <SwiperContainer className='main-swiper' navigation pagination>
         {
             banners.map((it, i) =>
                 <SwiperSlide key={i}>
-                    <a href={it.url}><img src={it.img} /></a>
+                    <a href={it.url}><img src={'/img/banners/'+it.img} /></a>
                 </SwiperSlide>
             )
         }
