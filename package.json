@@ -18,7 +18,7 @@
         "@nanostores/react": "0.7.2",
         "react-router": "6.24.1",
         "react-router-dom": "6.24.1",
-        "swiper": "11.1.4"
+        "swiper": "14.0.5"
     },
     "devDependencies": {
         "gh-pages": "6.1.1",

@@ -3,3 +3,11 @@ type Banner = {
     url
     desc
 }
+
+
+type CompanyReview = {
+    client
+    city
+    date
+    review
+}

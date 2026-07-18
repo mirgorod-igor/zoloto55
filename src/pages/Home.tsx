@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import { Outlet } from 'react-router-dom'
-
-
  
+import * as home from '@/model/home'
+
 import J1 from '../img/jewerly/9e91tjthwxvc2tg3b9a3jii38k93r6pc.webp'
 
 import Ok from '@/img/ok.svg?react'
@@ -12,35 +12,8 @@ import Payment from '@/img/payment.svg?react'
 
 
 import '../style/home.sass'
-import { atom } from 'nanostores'
-import { useStore } from '@nanostores/react'
 
 
-
-const $banners = atom<Banner[]>([])
-
-
-async function fetchUserData() {
-  const url = 'banners.json'
-  
-  try {
-    const response = await fetch(url)
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
-    }
-    
-    const data = await response.json();
-    console.log(data);
-
-    $banners.set([...data])
-    
-  } catch (error) {
-    console.error('Fetch operation failed:', error)
-  }
-}
-debugger
-fetchUserData()
 
 
 type ContainerProps = {
@@ -50,6 +23,8 @@ type ContainerProps = {
     spaceBetween?: number
     navigation?: boolean
     pagination?: boolean
+    observer?: boolean
+    observeParents?: boolean
 }
 
 
@@ -63,11 +38,11 @@ const SwiperSlide = p => <swiper-slide lazy>{p.children}</swiper-slide>
 
 
 const Swiper = () => {
-    const banners = useStore($banners)
+    const items = home.useBanners()
 
     return <SwiperContainer className='main-swiper' navigation pagination>
         {
-            banners.map((it, i) =>
+            items.map((it, i) =>
                 <SwiperSlide key={i}>
                     <a href={it.url}><img src={'/img/banners/'+it.img} /></a>
                 </SwiperSlide>
@@ -113,28 +88,6 @@ const jewerly = [
 
 
 
-const companyReviews = [
-    {
-        client: 'Боярская Ольга Ивановна',
-        city: 'Москва',
-        date: '15.04.2026',
-        review: 'Сегодня приобрела себе цепочку из белого золота , 45 разм . Обслуживание на высшем уровне . Спасибо Всем !'
-    },
-    {
-        client: 'Газарян Светлана',
-        city: 'Омск',
-        date: '04.06.2026',
-        review: 'Обменивала старе на новое, всё доступно объяснили. Покупкой довольна, спасибо.'
-    },
-    {
-        client: 'Максим',
-        city: 'Омск',
-        date: '04.06.2026',
-        review: 'Сегодня приобрёл подарок для жены серьги и кулон. Продавец консультант Юлия Владимировна просто профессионал своего дела ей нужно давать премию за это. Приобрет...'
-    }
-
-]
-
 
 
 const JewelrySwiper = () => {
@@ -154,8 +107,20 @@ const JewelrySwiper = () => {
 
 
 
-const Main = () => {
+const CompanyReviews = () => {
+    const items = home.useCompanyReviews()
 
+    return items.map((it, i) => <li key={i}>
+        <div>
+            <b>{it.client}</b>
+            <small>г. {it.city}&nbsp;&nbsp;&nbsp;{it.date}</small>
+        </div>
+        <span>{it.review}</span>
+        <a><b>Читать весь отзыв</b></a>
+    </li>)
+}
+
+const Main = () => {
     return <>
         <Outlet />
         <section>
@@ -175,16 +140,7 @@ const Main = () => {
         <section>
             <h2>Отзывы о компании</h2>
             <ul className='reviews'>
-            {
-                companyReviews.map((it, i) => <li key={i}>
-                    <div>
-                        <b>{it.client}</b>
-                        <small>г. {it.city}&nbsp;&nbsp;&nbsp;{it.date}</small>
-                    </div>
-                    <span>{it.review}</span>
-                    <a><b>Читать весь отзыв</b></a>
-                </li>)
-            }
+            <CompanyReviews />
             </ul>
         </section>
     </>
