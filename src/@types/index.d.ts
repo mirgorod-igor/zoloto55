@@ -11,3 +11,10 @@ type CompanyReview = {
     date
     review
 }
+
+
+type Jewerly = {
+    img
+    url
+    desc
+}

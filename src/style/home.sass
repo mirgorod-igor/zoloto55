@@ -21,23 +21,45 @@ section
 
 .jewelry-swiper
     a
-        border: 6px solid $gray7
+        border: 6px solid #F4F3F1
         height: inherit
-        background: $gray7
+        background: #F4F3F1
         display: flex
         flex-flow: column
         align-items: center
-        transition: border-color .3s linear, color .3s linear
+        transition: .3s
+
+        > b
+            &::after
+                content: ''
+                display: block
+                width: 25px
+                height: 10px 
+                background-image: url(@/img/ArrowRight.svg)
+                background-size: contain
+                background-repeat: no-repeat
+                transition: .3s
 
         &:hover
             border-color: $gold-hover
             color: $gold-hover
+            > b
+                &::after
+                    width: 44px
+                    background-image: url(@/img/ArrowRightHover.svg)
 
 
     b
         text-transform: uppercase
-        margin-bottom: 16px
+        margin-bottom: 32px
         font-size: 18px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 0 32px
+        width: 100%
+        transition: .3s
+        
 
     img
         width: auto
@@ -59,6 +81,67 @@ section
 
 
 
+
+.grid
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-template-rows: 270px 320px 270px
+    gap: 18px
+
+    > a
+        padding: 30px 40px
+
+    > a, > span
+        display: flex
+        flex-flow: column
+        justify-content: end
+        background-size: cover
+        background-repeat: no-repeat
+        background-position: center
+
+        &:first-child, &:nth-child(2), &:nth-child(5), &:nth-child(6)
+            grid-column: span 2
+        
+        > h2
+            text-transform: uppercase
+            margin-top: 15px
+            margin-bottom: 0
+            font-size: 18px
+        
+        > small
+            font-size: 14px
+            line-height: 1.5
+
+        &:first-child
+            display: block
+            position: relative
+            background: #898989
+            padding: 65px 120px 80px 40px
+            justify-content: space-between
+            > h2
+                color: white
+                text-transform: uppercase
+                margin: 0
+                padding-bottom: 32px
+            > small
+                color: white
+            
+            &::after
+                content: ''
+                display: flex
+                width: 50px
+                height: 50px
+                background-image: url(@/img/collection-icon.svg)
+                background-size: contain
+                background-repeat: no-repeat
+                position: absolute
+                right: 32px
+
+
+
+        &:nth-child(2)
+            grid-row: span 2
+            
 
 .reviews
     display: flex
@@ -103,7 +186,7 @@ section
                 background-repeat: no-repeat
                 transition: 0.3s
             &:hover
-                color: #d3c48f
+                color: $gold-hover
                 &::after
                     width: 44px
                     background-image: url(@/img/ArrowRightHover.svg)

@@ -3,8 +3,6 @@ import { Outlet } from 'react-router-dom'
  
 import * as home from '@/model/home'
 
-import J1 from '../img/jewerly/9e91tjthwxvc2tg3b9a3jii38k93r6pc.webp'
-
 import Ok from '@/img/ok.svg?react'
 import Percent from '@/img/percent.svg?react'
 import Delivery from '@/img/delivery.svg?react'
@@ -52,51 +50,16 @@ const Swiper = () => {
 }
 
 
-const jewerly = [
-    {
-        img: J1,
-        url: '',
-        desc: 'браслеты'
-    },
-    {
-        img: J1,
-        url: '',
-        desc: 'серьги'
-    },
-    {
-        img: J1,
-        url: '',
-        desc: 'кольца'
-    },
-    {
-        img: J1,
-        url: '',
-        desc: 'цепи'
-    },
-    {
-        img: J1,
-        url: '',
-        desc: 'подвески'
-    },
-    {
-        img: J1,
-        url: '',
-        desc: 'обручальные кольца'
-    }
-]
-
-
-
-
-
 
 const JewelrySwiper = () => {
-    return <SwiperContainer className='jewelry-swiper' slides={4} spaceBetween={20}>
+    const items = home.useJewerly()
+
+    return <SwiperContainer className='jewelry-swiper' slides={4} spaceBetween={18}>
         {
-            jewerly.map((it, i) =>
+            items.map((it, i) =>
                 <SwiperSlide key={i}>
                     <a href={it.url}>
-                        <img src={it.img} />
+                        <img src={'/img/jewerly/' + it.img} />
                         <b>{it.desc}</b>
                     </a>
                 </SwiperSlide>
@@ -106,6 +69,36 @@ const JewelrySwiper = () => {
 }
 
 
+
+const Grid = () => {
+
+    return <div className='grid'>
+        <span>
+            <h2>Коллекции</h2>
+            <small>Для наших любимых покупателей мы отбираем лучшие коллекции российских и мировых производителей. В нашем ассортименте представлены украшения на любой вкус: от классики до последних трендов.</small>
+        </span>
+        <a href='youtube.com' style={{ backgroundImage: 'url(/img/g9u2fo8hn6gpk81fzy55o51wk1hn7sxp.webp)' }}>
+            <small>Самые актуальные украшения прямо сейчас</small>
+            <h2>Тренды</h2>
+        </a>
+        <a style={{ backgroundImage: 'url(/img/724sz8opuhk6ultqwfe0faxdheenm8up.webp' }}>
+            <small>Ювелирный символ вашей&nbsp;любви</small>
+            <h2>Обручальные кольца</h2>
+        </a>
+        <a style={{ backgroundImage: 'url(/img/voeb4ox11jmrf5bh91ighzq75ebugv6e.webp)' }}>
+            <small>Новая коллекция нашего бренда</small>
+            <h2>ЭТОКРАСИВО.</h2>
+        </a>
+        <a style={{ backgroundImage: 'url(/img/9fqndrbzc6o1203xexmfynebqgfxht9v.webp)' }}>
+            <small>Стильные украшения<br/>для настоящих мужчин</small>
+            <h2>Мужская коллекция</h2>
+        </a>
+        <a style={{ backgroundImage: 'url(/img/1z08nbbbtrls5lxl4s2c7ku6q1lowqq2.webp)' }}>
+            <small>Украшения для маленьких<br/>принцесс</small>
+            <h2>Детская коллекция</h2>
+        </a>
+    </div>
+}
 
 const CompanyReviews = () => {
     const items = home.useCompanyReviews()
@@ -135,6 +128,9 @@ const Main = () => {
         <section>
             <h2>Ювелирные изделия</h2>
             <JewelrySwiper />
+        </section>
+        <section>
+            <Grid />
         </section>
 
         <section>
