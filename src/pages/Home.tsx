@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { Fragment, ReactNode } from 'react'
 import { Outlet } from 'react-router-dom'
  
 import * as home from '@/model/home'
@@ -71,33 +71,22 @@ const JewelrySwiper = () => {
 
 
 const Grid = () => {
+    const items = home.useGrid()
 
-    return <div className='grid'>
-        <span>
-            <h2>Коллекции</h2>
-            <small>Для наших любимых покупателей мы отбираем лучшие коллекции российских и мировых производителей. В нашем ассортименте представлены украшения на любой вкус: от классики до последних трендов.</small>
-        </span>
-        <a href='youtube.com' style={{ backgroundImage: 'url(/img/g9u2fo8hn6gpk81fzy55o51wk1hn7sxp.webp)' }}>
-            <small>Самые актуальные украшения прямо сейчас</small>
-            <h2>Тренды</h2>
-        </a>
-        <a style={{ backgroundImage: 'url(/img/724sz8opuhk6ultqwfe0faxdheenm8up.webp' }}>
-            <small>Ювелирный символ вашей&nbsp;любви</small>
-            <h2>Обручальные кольца</h2>
-        </a>
-        <a style={{ backgroundImage: 'url(/img/voeb4ox11jmrf5bh91ighzq75ebugv6e.webp)' }}>
-            <small>Новая коллекция нашего бренда</small>
-            <h2>ЭТОКРАСИВО.</h2>
-        </a>
-        <a style={{ backgroundImage: 'url(/img/9fqndrbzc6o1203xexmfynebqgfxht9v.webp)' }}>
-            <small>Стильные украшения<br/>для настоящих мужчин</small>
-            <h2>Мужская коллекция</h2>
-        </a>
-        <a style={{ backgroundImage: 'url(/img/1z08nbbbtrls5lxl4s2c7ku6q1lowqq2.webp)' }}>
-            <small>Украшения для маленьких<br/>принцесс</small>
-            <h2>Детская коллекция</h2>
-        </a>
-    </div>
+    return <div className='grid'>{
+
+        items.map((it, i) =>
+            i == 0
+                ? <span>
+                    <h2>{it.title}</h2>
+                    <small>{it.text}</small>
+                </span> 
+                : <a href='youtube.com' style={{ backgroundImage: 'url(/img/' + it.img + ')' }}>
+                    <small dangerouslySetInnerHTML={{ __html: it.text}} />
+                    <h2>{it.title}</h2>
+                </a>
+        )
+    }</div>
 }
 
 const CompanyReviews = () => {

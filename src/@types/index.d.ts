@@ -18,3 +18,10 @@ type Jewerly = {
     url
     desc
 }
+
+
+type GridItem = {
+    title
+    text
+    img
+}
